@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/person" xmlns:tns="http://www.example.org/person"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="Person" type="tns:PersonType" />
+
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<xs:element name="MailingAddress" type="tns:AddressType" />
+			<xs:element name="ResidentialAddress" type="tns:AddressType" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="firstName" type="xs:string" use="required" />
+		<xs:attribute name="lastName" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="AddressType">
+		<xs:attribute name="streetAddress" type="xs:string" use="required" />
+		<xs:attribute name="city" type="xs:string" use="required" />
+		<xs:attribute name="state" type="xs:string" use="required" />
+		<xs:attribute name="zipCode" type="xs:string" use="required" />
+	</xs:complexType>
+
+</xs:schema>
